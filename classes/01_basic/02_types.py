@@ -1,10 +1,8 @@
 ### 
-
-# 02 - types
+# 02 - Types
 
 # Python tiene varios tipos de datos incorporados que nos permiten almacenar y manipular diferentes tipos de información.
 # Como son: int, float, complex, str, bool, NoneType, list, tuple, dict, set, range, entre otros.
-
 ### -> Comentarios (#)
 
 """
@@ -39,3 +37,13 @@ print(type("Esto es una cadena de texto."))
 #    cadena de texto.
 #""")
 
+print("\nBoolean (booleanos):")
+print(True)
+# print(type(True))
+# print(False)
+# print(type(False))
+# print(type(1 < 2)) # Las expresiones de comparación devuelven booleanos.
+
+print("\nNoneType (ninguno):")
+print(None)
+print(type(None)) # Representa la ausencia de valor.

@@ -1,6 +1,5 @@
 ### 
-
-# 01 - print()
+# 01 - Print()
 
 # Es un módulo para imprimir mensajes en la consola.
 
@@ -8,7 +7,6 @@
 # Los archivos serán escritos en snake case (usar guiones bajos para separar palabras).
 # La extensión del archivo será .py
 # Los strings o cadenas de texto se definen usando comillas dobles ("") o simples ('').
-
 ###
 
 print("Hello World!")
