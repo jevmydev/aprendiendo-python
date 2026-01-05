@@ -52,3 +52,13 @@ print("\nNot:")
 print("  A     not A")
 print("True   ", not True)
 print("False  ", not False)
+
+#number = 5
+#if number:
+#    print("Recordar que solo sí el número es 0, se evalúa como False.")
+#    print("Cualquier otro número se evalúa como True.")
+
+#name = "Python"
+#if name:
+#    print("\nRecordar que una cadena vacía ('') se evalúa como False.")
+#    print("Cualquier otra cadena con contenido se evalúa como True.")
