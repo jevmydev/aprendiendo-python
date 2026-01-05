@@ -92,3 +92,12 @@ else:
 #    print("Puedes salir de fiesta")
 #else:
 #    print("No tienes dinero para salir de fiesta")
+
+print("\nCondición ternaria")
+# Forma más compacta de escribir una sentencia if-else
+# Sintaxis: [código si cumple la condición] if condición else [código si no cumple]
+
+# En JavaScript: condición ? código si cumple : código si no cumple
+
+age = 16
+print("Eres mayor de edad") if age >= 18 else print("Eres menor de edad")
