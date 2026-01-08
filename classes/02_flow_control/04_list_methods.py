@@ -69,9 +69,9 @@ sorted_fruits = sorted(frutas)
 print(sorted_fruits)
 
 print("\nOrdenar listas de cadenas de texto (mezcla mayúsculas y minúscula)")
-frutas = ["manzana", "pera", "Manzana", "kiwi", "Pera", "arándanos"] 
+frutas = ["manzana", "pera", "MANZANA", "kiwi", "Pera", "arándanos"] 
 frutas.sort(key=str.lower)
-print(sorted_fruits)
+print(frutas)
 
 # Otros métodos y operadores útiles
 animals = ["🐶", "😺", "🐒", "😺", "🦍", "🦊"]
