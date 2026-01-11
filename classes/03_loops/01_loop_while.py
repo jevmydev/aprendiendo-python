@@ -1,5 +1,5 @@
 ###
-# 01 - Bucles while()
+# 01 - Bucles while
 
 # Permite ejecutar un bloque de código repetidamente mientras se cumple una condición
 ###
