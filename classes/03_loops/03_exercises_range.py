@@ -48,8 +48,17 @@ print(sum)
 # Imprime la tabla de multiplicar de ese número (del 1 al 10) usando un bucle for y range().
 print("\nEjercicio 6:")
 
-num = int(input("Introduce un número para realizar su tabla de multiplicar: "))
+def print_multiplication_table(num, limit = 11):
+    for i in range(1, limit):
+        product = num * i
+        print(f"{num} x {i} = {product}")
 
-for i in range(1, 11):
-    product = num * i
-    print(f"{num} x {i} = {product}")
+num = int(input("Introduce un número para realizar su tabla de multiplicar: "))
+user_want_modify_limit = input("¿Quieres modificar el límite de tu tabla (si/no. Por defecto: 10)?: ")
+
+if user_want_modify_limit == "si":
+    limit = int(input("\nEscoge la longitud de la tabla de multiplicar: ")) + 1
+    print_multiplication_table(num, limit)
+
+else: 
+    print_multiplication_table(num)

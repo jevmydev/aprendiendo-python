@@ -7,11 +7,12 @@ os.system("clear")
 # Ejercicio 1: Imprimir números pares
 # Imprime todos los números pares del 2 al 20 (inclusive) usando un bucle for.
 print("\nEjercicio 1:")
-numbers = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 
-for num in numbers:
-    if num % 2 == 0:
-        print(num, end=" ")
+range_par_nums = range(2, 21, 2)
+par_nums = list(range_par_nums)
+
+for num in par_nums:
+    print(num, end = " ")
 
 # Ejercicio 2: Calcular la media de una lista
 # Dada la siguiente lista de números:
@@ -26,7 +27,6 @@ for num in numbers:
     sum += num
 
 average = sum / len(numbers)
-
 print(average)
 
 # Ejercicio 3: Buscar el máximo de una lista
@@ -35,15 +35,17 @@ print(average)
 # Encuentra el número máximo en la lista usando un bucle for.
 print("\nEjercicio 3:")
 
-numbers = [15, 5, 25, 10, 20]
-
-for num in numbers:
-    is_max_number = True
-
+def compare_numbers(num, compare_num):
+    """Esta función compara un número con una lista de números, verificando si es el mayor o no. Retorna True, en caso de ser el mayor y False en caso contrario."""
     for compare_num in numbers:
         if num < compare_num:
-            is_max_number = False
-            break
+            return False
+        
+    return True
+
+numbers = [15, 5, 25, 10, 20]
+for num in numbers:
+    is_max_number = compare_numbers(num=num, compare_num=numbers)
 
     if is_max_number:
         print(f"El número máximo es {num}")
@@ -74,9 +76,9 @@ user_letter = input("Introduce una letra: ").lower()
 count_coincidence = 0
 
 for word in words:
-    first_letter_word = word[0].lower()
+    is_first_letter_match = word.startswith(user_letter)
     
-    if user_letter == first_letter_word:
+    if is_first_letter_match:
         count_coincidence += 1
 
 if count_coincidence == 1:

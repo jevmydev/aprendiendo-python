@@ -17,13 +17,16 @@ while count >= 1:
 # Calcula la suma de los números pares entre 1 y 20 (inclusive) usando un bucle while.
 print("\nEjercicio 2:")
 
+def is_par (num):
+    return num % 2 == 0
+
 count = 0
 sum = 0
 
 while count <= 20:
     count += 1
 
-    if count % 2 == 0:
+    if is_par(count):
         sum += count
 
 print(f"La suma es: {sum}")
@@ -82,28 +85,29 @@ while count <= 10:
 # Imprime todos los números primos menores o iguales que N usando un bucle while.
 print("\nEjercicio 6:")
 
+def is_prime(num):
+    if count < 2:
+        return False
+
+    iterator = 2
+    while iterator < (num - 1):
+        if (num % iterator == 0):
+            return False
+        iterator += 1
+        
+    return True
+
 num = int(input("Introduce un número entero positivo: "))
 count = num
 prime_numbers: list[int] = []
 
 while count > 1:
-    is_number_prime = True
-    if count < 2:
-        is_number_prime = False
-    
-    iterator = 2
-    while iterator < (count - 1):
-        if (count % iterator == 0):
-            is_number_prime = False
-            break
-        
-        iterator += 1
+    is_number_prime = is_prime(num=count)
     
     if is_number_prime:
         prime_numbers.append(count)
 
     count -= 1
-    
 
 prime_numbers.sort()
 print(f"El número {num} tiene los siguientes números primos: {prime_numbers}")

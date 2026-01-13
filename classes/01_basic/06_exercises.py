@@ -25,11 +25,11 @@ e = None
 
 ### Completa aquí
 
-print("Tipo de a:", type(a))
-print("Tipo de b:", type(b))
-print("Tipo de c:", type(c))
-print("Tipo de d:", type(d))
-print("Tipo de e:", type(e))
+def print_types(*data):
+    for var in data:
+        print(type(var))
+
+print_types(a, b, c, d, e)
 
 print("--------------")
 
@@ -51,12 +51,15 @@ print("Usa f-strings para imprimir una presentación.")
 
 ### Completa aquí
 
+def describe_person(**info):
+    for adjective, value in info.items():
+        print(f"Mi {adjective} es {value}")
+
 name = "Jeremy Díaz"
 age = 18
 height = 1.70
 
-print(f"Hola! Soy {name} tengo {age} años y mido {height}m")
-
+describe_person(nombre=name, edad = age, altura = height)
 
 print("--------------")
 

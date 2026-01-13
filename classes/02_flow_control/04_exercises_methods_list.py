@@ -43,7 +43,7 @@ print(lista_b)
 # Utiliza slicing y del para eliminar los elementos desde el índice 2 hasta el 5 (sin incluir el 5).
 # Imprime la lista resultante.
 
-lista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+lista = list(range(1, 11))
 del lista[2:5]
 
 print("\n", lista, sep="")
