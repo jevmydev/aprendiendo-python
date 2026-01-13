@@ -94,7 +94,7 @@ def mostrar_info(**kwargs):
 mostrar_info(nombre="Luis", edad=35, ciudad="Valencia")
 mostrar_info(nombre="Marta", profesion="Ingeniera", pais="Argentina", is_rich=True)
 
-### Ejercicios
+### Ejercicios (Cumplido)
 #
 # Volver a ejercicios anteriores y convertir el código en funciones reutilizables
 # e intentar utilizar todos los casos y conceptos aprendidos
