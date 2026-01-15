@@ -13,7 +13,7 @@ Debes simular estos enfrentamientos y devolver el resultado final:
 - En caso de empate, devuelve la letra "x".
 
 lista_a = [2, 4, 2]
-lista_b = [3, 3, 4]
+lista_b = [3, 3, 4] 
 
 resultado = battle(lista_a, lista_b)  # -> "2b"
 
@@ -34,3 +34,27 @@ resultado = battle(lista_a, lista_b)  # -> "x"
 # - 4 vs 2+2: empate
 # Resultado: "x"
 """
+import os
+os.system("clear")
+
+def battle(list_a, list_b):
+    sum_a = sum(list_a)
+    sum_b = sum(list_b)
+    diff = abs(sum_a - sum_b)
+
+    if diff == 0: return "x"
+    if sum_a > sum_b: return f"{diff}a"
+
+    return f"{diff}b"
+
+lista_a = [2, 4, 2]
+lista_b = [3, 3, 4] 
+
+resultado = battle(lista_a, lista_b)  # -> "2b"
+print(resultado)
+
+lista_a = [4, 4, 4]
+lista_b = [2, 8, 2]
+
+resultado = battle(lista_a, lista_b)  # -> "x"
+print(resultado)
