@@ -1,4 +1,7 @@
 import re
+import os
+
+os.system("clear")
 
 def fibonacci_reverse(first, second):
     while first <= second:

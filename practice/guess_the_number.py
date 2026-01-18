@@ -1,4 +1,7 @@
 import random
+import os
+
+os.system("clear")
 
 print("\n¡Bienvenido a adivina el número, con pistas te irás guiando, hasta encontrar el número buscado!")
 print("Procura no equivocarte tanto.")
