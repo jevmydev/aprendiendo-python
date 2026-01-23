@@ -3,7 +3,7 @@ import os
 
 os.system("clear")
 
-print("---------------------------------------")
+print("\n---------------------------------------")
 print("Primer ejercicio - FizzBuzz")
 print("---------------------------------------")
 
@@ -32,7 +32,7 @@ for num in range(1, 101):
     else:
         print(num)
 
-print("---------------------------------------")
+print("\n---------------------------------------")
 print("Segundo ejercicio - ¿Es un anagrama?")
 print("---------------------------------------")
 
@@ -73,7 +73,7 @@ print(is_anagram("amor", "amores"))         # False
 print(is_anagram("Roma", "amor"))           # True 
 print(is_anagram("roma", "amor "))    # True 
 
-print("---------------------------------------")
+print("\n---------------------------------------")
 print("Tercer ejercicio - Fibonacci")
 print("---------------------------------------")
 
@@ -101,7 +101,7 @@ for i in range(51):
 for num in fibonacci:
     print(f"{num}", end=", " if num != fibonacci[-1] else "\n")
 
-print("---------------------------------------")
+print("\n---------------------------------------")
 print("Cuarto ejercicio - Área de un polígono")
 print("---------------------------------------")
 
@@ -135,7 +135,7 @@ def area_of_polygon(polygon, base, height):
 
 print(area_of_polygon("Triangulo", base=3, height=4))
 
-print("---------------------------------------")
+print("\n---------------------------------------")
 print("Quinto ejercicio - Invertir cadenas")
 print("---------------------------------------")
 
@@ -149,3 +149,67 @@ def reverse_str(str):
     return str[::-1]
 
 print(reverse_str("Hola mundo"))
+
+
+print("\n---------------------------------------")
+print("Sexto ejercicio - Contando palabras")
+print("---------------------------------------")
+
+###
+# * Crea un programa que cuente cuantas veces se repite cada palabra
+# * y que muestre el recuento final de todas ellas.
+# * - Los signos de puntuación no forman parte de la palabra.
+# * - Una palabra es la misma aunque aparezca en mayúsculas y minúsculas.
+# * - No se pueden utilizar funciones propias del lenguaje que
+# *   lo resuelvan automáticamente.
+###
+
+def count_words(text: str):
+    dicc_words = {}
+    list_text = text.split(" ")
+
+    for word in list_text:
+        parse_word = ""
+
+        for char in word.lower():
+            if char in ".,!¡?¿(){}[]":
+                continue
+            
+            parse_word += char
+
+        if parse_word in dicc_words:
+            dicc_words[parse_word] += 1
+        else:
+            dicc_words[parse_word] = 1
+
+    return dicc_words
+
+# Genera test para count_words
+print(count_words("Hola hola mundo. Mundo de pruebas, pruebas de código!"))
+print(count_words("¡Pruebas, pruebas y más pruebas! ¿Por qué tantas pruebas?"))
+
+print("\n---------------------------------------")
+print("Séptimo ejercicio - Decimal a binario")
+print("---------------------------------------")
+
+###
+# * Crea un programa se encargue de transformar un número
+# * decimal a binario sin utilizar funciones propias del lenguaje que lo hagan directamente.
+###
+
+def decimal_to_binary(decimal):
+    if decimal == 0:
+        return "0"
+    
+    decimal = abs(int(decimal))
+    binary = ""
+
+    while decimal > 0:
+        residue = decimal % 2
+        decimal //= 2
+
+        binary = str(residue) + binary
+
+    return binary
+
+print(decimal_to_binary(-100))
