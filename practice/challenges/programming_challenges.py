@@ -4,7 +4,7 @@ import os
 os.system("clear")
 
 print("\n---------------------------------------")
-print("Primer ejercicio - FizzBuzz")
+print("1. FizzBuzz")
 print("---------------------------------------")
 
 ###
@@ -33,7 +33,7 @@ for num in range(1, 101):
         print(num)
 
 print("\n---------------------------------------")
-print("Segundo ejercicio - ¿Es un anagrama?")
+print("2 - ¿Es un anagrama?")
 print("---------------------------------------")
 
 ###
@@ -74,7 +74,7 @@ print(is_anagram("Roma", "amor"))           # True
 print(is_anagram("roma", "amor "))    # True 
 
 print("\n---------------------------------------")
-print("Tercer ejercicio - Fibonacci")
+print("3 - Fibonacci")
 print("---------------------------------------")
 
 ###
@@ -102,7 +102,7 @@ for num in fibonacci:
     print(f"{num}", end=", " if num != fibonacci[-1] else "\n")
 
 print("\n---------------------------------------")
-print("Cuarto ejercicio - Área de un polígono")
+print("4 - Área de un polígono")
 print("---------------------------------------")
 
 ###
@@ -136,7 +136,7 @@ def area_of_polygon(polygon, base, height):
 print(area_of_polygon("Triangulo", base=3, height=4))
 
 print("\n---------------------------------------")
-print("Quinto ejercicio - Invertir cadenas")
+print("5 - Invertir cadenas")
 print("---------------------------------------")
 
 ###
@@ -152,7 +152,7 @@ print(reverse_str("Hola mundo"))
 
 
 print("\n---------------------------------------")
-print("Sexto ejercicio - Contando palabras")
+print("6 - Contando palabras")
 print("---------------------------------------")
 
 ###
@@ -189,7 +189,7 @@ print(count_words("Hola hola mundo. Mundo de pruebas, pruebas de código!"))
 print(count_words("¡Pruebas, pruebas y más pruebas! ¿Por qué tantas pruebas?"))
 
 print("\n---------------------------------------")
-print("Séptimo ejercicio - Decimal a binario")
+print("7 - Decimal a binario")
 print("---------------------------------------")
 
 ###
@@ -212,4 +212,176 @@ def decimal_to_binary(decimal):
 
     return binary
 
-print(decimal_to_binary(-100))
+print(decimal_to_binary(124))
+
+print("\n---------------------------------------")
+print("8 - Código morse")
+print("---------------------------------------")
+
+###
+#  * Crea un programa que sea capaz de transformar texto natural a código
+#  * morse y viceversa.
+#  * - Debe detectar automáticamente de qué tipo se trata y realizar
+#  *   la conversión.
+#  * - En morse se soporta raya "—", punto "·, un espacio entre símbolo, dos espacios entre palabras "  ".
+#  * - El alfabeto morse soportado será el mostrado en
+#  *   https://es.wikipedia.org/wiki/Código_morse.
+###
+
+diccionary_to_morse = {
+    "A": "·—",
+    "B": "—···",
+    "C": "—·—·",
+    "D": "—··",
+    "E": "·",
+    "F": "··—·",
+    "G": "——·",
+    "H": "····",
+    "I": "··",
+    "J": "·———",
+    "K": "—·—",
+    "L": "·—··",
+    "M": "——",
+    "N": "—·",
+    "O": "———",
+    "P": "·——·",
+    "Q": "——·—",
+    "R": "·—·",
+    "S": "···",
+    "T": "—",
+    "U": "··—",
+    "V": "···—",
+    "W": "·——",
+    "X": "—··—",
+    "Y": "—·——",
+    "Z": "——··",
+    "1": "·————",
+    "2": "··———",
+    "3": "···——",
+    "4": "····—",
+    "5": "·····",
+    "6": "—····",
+    "7": "——···",
+    "8": "———··",
+    "9": "————·",
+    "0": "—————",
+}
+diccionary_to_text = {v: k for k, v in diccionary_to_morse.items()}
+
+def morse_to_text(morse):
+    text = ""
+    words = morse.split("  ")
+
+    for word in words:
+        symbols = word.split(" ")
+
+        for code_symbol in symbols:
+            letter = diccionary_to_text[code_symbol]
+            text += letter
+        
+        text += " "
+
+    return text
+
+def text_to_morse(text):
+    morse = ""
+    words = text.split(" ")
+
+    for word in words:
+        for letter in word:
+            code_symbol = diccionary_to_morse[letter]
+            morse += code_symbol + " "
+        
+        morse += "  "
+    
+    return morse
+
+def conversion_morse_and_text(string):
+    if string[0] in ["·", "—"]:
+        return morse_to_text(string)
+    
+    return text_to_morse(string)
+
+# =========================
+# TESTS: text_to_morse
+# =========================
+
+print(conversion_morse_and_text("SOS"))
+# Resultado esperado:
+# "··· ——— ···  "
+
+print(conversion_morse_and_text("HELLO"))
+# Resultado esperado:
+# "···· · ·—·· ·—·· ———  "
+
+print(conversion_morse_and_text("HELLO WORLD"))
+# Resultado esperado:
+# "···· · ·—·· ·—·· ———   ·—— ——— ·—· ·—·· —··  "
+
+print(conversion_morse_and_text("A1"))
+# Resultado esperado:
+# "·— ·————  "
+
+# =========================
+# TESTS: morse_to_text
+# =========================
+
+print(conversion_morse_and_text("··· ——— ···"))
+# Resultado esperado:
+# "SOS "
+
+print(conversion_morse_and_text("···· · ·—·· ·—·· ———"))
+# Resultado esperado:
+# "HELLO "
+
+print(conversion_morse_and_text("···· · ·—·· ·—·· ———  ·—— ——— ·—· ·—·· —··"))
+# Resultado esperado:
+# "HELLO WORLD "
+
+print(conversion_morse_and_text("·— ·————"))
+# Resultado esperado:
+# "A1 "
+
+print("\n---------------------------------------")
+print("9 - Expresiones equilibradas")
+print("---------------------------------------")
+
+###
+#  * Crea un programa que comprueba si los paréntesis, llaves y corchetes
+#  * de una expresión están equilibrados.
+#  * - Equilibrado significa que estos delimitadores se abren y cieran
+#  *   en orden y de forma correcta.
+#  * - Paréntesis, llaves y corchetes son igual de prioritarios.
+#  *   No hay uno más importante que otro.
+#  * - Expresión balanceada: { [ a * ( c + d ) ] - 5 }
+#  * - Expresión no balanceada: { a * ( c + d ) ] - 5 }
+###
+
+def is_balanced(expression):
+    open_symbols = []
+
+    for symbol in expression:
+        if symbol == "(" or symbol == "[" or symbol == "{":
+            open_symbols.append(symbol)
+
+        elif symbol == ")" or symbol == "]" or symbol == "}":
+            if len(open_symbols) == 0:
+                return False
+
+            last_open = open_symbols.pop()
+
+            if (last_open == "(" and symbol != ")" or
+                last_open == "[" and symbol != "]" or
+                last_open == "{" and symbol != "}"):
+                return False
+
+    return len(open_symbols) == 0
+    
+
+print(is_balanced("{ [ a * ( c + d ) ] - 5 }"))  # True
+print(is_balanced("{ a * ( c + d ) ] - 5 }"))    # False 
+print(is_balanced("[ ( a + b ) * { c + d } ]")) # True
+print(is_balanced("[ ( a + b ) * { c + d } "))   # False
+print(is_balanced("{ ( [ ] ) }"))                  # True
+print(is_balanced("{ ( [ ) ] }"))                  # False
+print(is_balanced("{ ( [ ] { } ) }"))                  # True
