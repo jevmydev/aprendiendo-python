@@ -385,3 +385,86 @@ print(is_balanced("[ ( a + b ) * { c + d } "))   # False
 print(is_balanced("{ ( [ ] ) }"))                  # True
 print(is_balanced("{ ( [ ) ] }"))                  # False
 print(is_balanced("{ ( [ ] { } ) }"))                  # True
+
+print("\n---------------------------------------")
+print("10 - Eliminando caracteres")
+print("---------------------------------------")
+
+###
+#  * Crea una función que reciba dos cadenas como parámetro (str1, str2)
+#  * e imprima otras dos cadenas como salida (out1, out2).
+#  * - out1 contendrá todos los caracteres presentes en la str1 pero NO
+#  *   estén presentes en str2.
+#  * - out2 contendrá todos los caracteres presentes en la str2 pero NO
+#  *   estén presentes en str1.
+###
+
+def deleting_chars(str1, str2):
+    out1 = ""
+    out2 = ""
+
+    for char1 in str1:
+        if char1 not in str2:
+            out1 += char1
+
+    for char2 in str2:
+        if char2 not in str1:
+            out2 += char2
+
+    return (out1, out2)
+
+# =========================
+# TESTS: deleting_chars
+# =========================
+
+print(deleting_chars("abc", "bcd")) # ("a", "d")
+print(deleting_chars("abc", "xyz")) # ("abc", "xyz")
+print(deleting_chars("", "abc")) # ("", "abc")
+print(deleting_chars("", "")) # ("", "")
+print(deleting_chars("aabbcc", "abc")) # ("", "")
+print(deleting_chars("AbC", "abc")) # ("AC", "ac")
+print(deleting_chars("a b!c", "b c?")) # ("a!", "?")
+print(deleting_chars("python", "python")) # ("", "")
+
+print("\n---------------------------------------")
+print("10 - Es un palíndromo")
+print("---------------------------------------")
+
+###
+#  * Escribe una función que reciba un texto y retorne verdadero o
+#  * falso (Boolean) según sean o no palíndromos.
+#  * Un Palíndromo es una palabra o expresión que es igual si se lee
+#   * de izquierda a derecha que de derecha a izquierda.
+#  * NO se tienen en cuenta los espacios, signos de puntuación y tildes.
+#  * Ejemplo: Ana lleva al oso la avellana.
+###
+
+def is_palindrome(text):
+    parse_text = ""
+
+    pattern = r"\w"
+    alfa_numerics_text = re.findall(pattern, text)
+
+    for char in alfa_numerics_text:
+        char = char.lower()
+
+        if char == "á": char = "a"
+        elif char == "é": char = "e"
+        elif char == "í": char = "i"
+        elif char == "ó": char = "o"
+        elif char == "ú": char = "u"
+
+        parse_text += char
+
+    return parse_text == parse_text[::-1]
+
+print(is_palindrome("ana"))                           # True
+print(is_palindrome("Ana"))                           # True
+print(is_palindrome("Ana lleva al oso la avellana"))  # True
+print(is_palindrome("¿Acaso hubo búhos acá?"))        # True
+print(is_palindrome("La ruta nos aportó otro paso natural."))  # True
+print(is_palindrome("Esto no es un palíndromo"))      # False
+print(is_palindrome(""))                              # True
+print(is_palindrome("a"))                             # True
+print(is_palindrome("12321"))                         # True
+print(is_palindrome("A1b2b1a"))                       # True
