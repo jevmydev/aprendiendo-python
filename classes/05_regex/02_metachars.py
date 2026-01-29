@@ -86,3 +86,63 @@ valid = re.search(pattern, phone)
 
 if valid: print("El número es válido")
 else: print("El número no es válido")
+
+# 6. $
+# Coincide con el final de una cadena
+print()
+
+text = "Hola mundo"
+pattern = r"mundo$"
+
+found = re.search(pattern, text)
+
+if found: print("Cadena válida")
+else: print("Cadena no válida")
+
+# Ejercicio
+# Comprueba que un correo sea gmail
+print()
+
+text = "jeremy@gmail.com"
+pattern = r"^\w+@gmail.com$" # el "+" es cuantas veces sea, en este caso: uno o más alfanuméricos
+found = re.search(pattern, text)
+
+if found: print("Correo gmail válido")
+else: print("Correo gmail no válido")
+
+# Ejercicio
+# Tenemos una lista de archivos, necesitamos saber los nombres de los ficheros con extensión .txt
+print()
+
+files = "file1.txt file2.pdf midu-of.webp secret.txt"
+pattern = r"\w+.txt"
+
+files_txt = re.findall(pattern, files)
+
+if files_txt:
+    print("Los nombres de los archivos .txt son: ")
+    for archive in files_txt:
+        name_archive = archive.split(".txt")[0]
+        print(name_archive)
+else:
+    print("No se encontraron archivos con extensión .txt")
+
+# 7. \b
+# Coincide con el principio o final de una cadena
+print()
+
+text = "casa casado cosa cosas casada casa casado"
+pattern = r"\bc.sa\b"
+
+found = re.findall(pattern, text)
+print(found)
+
+# 8. | (or)
+# Coincide con una opción u otra
+print()
+
+fruits = "plátano, manzana, aguacate, pera, palta, piña"
+pattern = r"palta|aguacate|p..a|\b\w{7}\b"
+
+found = re.findall(pattern, fruits)
+print(found)
