@@ -468,3 +468,63 @@ print(is_palindrome(""))                              # True
 print(is_palindrome("a"))                             # True
 print(is_palindrome("12321"))                         # True
 print(is_palindrome("A1b2b1a"))                       # True
+
+
+print("\n---------------------------------------")
+print("11 - Factorial recursivo")
+print("---------------------------------------")
+
+###
+#  * Escribe una función que calcule y retorne el factorial de un número dado
+#  * de forma recursiva.
+###
+
+def factorial(n):
+    if n == 1:
+        return 1
+    
+    return n * factorial(n - 1)
+
+print(factorial(15))
+
+print("\n---------------------------------------")
+print("11 - ¿Es un número de Armstrong?")
+print("---------------------------------------")
+
+###
+#  * Escribe una función que calcule si un número dado es un número de Armstrong
+#  * (o también llamado narcisista).
+#  * Si no conoces qué es un número de Armstrong, debes buscar información
+#  * al respecto.
+###
+
+def is_armstrong(num):
+    iterable_num = str(num)
+
+    sum_armstrong_digits = 0
+    len_of_digits = len(iterable_num)
+
+    for digit_str in iterable_num:
+        digit_int = int(digit_str)
+        sum_armstrong_digits += pow(base = digit_int, exp= len_of_digits)
+
+    return sum_armstrong_digits == num
+
+# =========================
+# TESTS: is_armstrong
+# =========================
+
+print(is_armstrong(0))      # True
+print(is_armstrong(1))      # True
+print(is_armstrong(5))      # True
+print(is_armstrong(9))      # True
+print()
+print(is_armstrong(10))     # False
+print(is_armstrong(153))    # True
+print(is_armstrong(370))    # True
+print(is_armstrong(371))    # True
+print(is_armstrong(407))    # True
+print()
+print(is_armstrong(100))    # False
+print(is_armstrong(9474))   # True
+print(is_armstrong(9475))   # False
