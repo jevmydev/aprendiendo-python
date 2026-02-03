@@ -51,3 +51,41 @@ pattern = r"(?:\+34 )?\d{9}"
 matches = re.findall(pattern, phone)
 
 print(matches)
+
+# {n}: Exactamente n veces
+print()
+
+text = "aaaaaa aa aaa"
+pattern = r"a{3}"
+
+matches = re.findall(pattern, text)
+print(matches)
+
+# {n, m}: De n a m veces
+print()
+
+text = "a aa aaa aaaa aaaaaaa"
+pattern = r"a{3,4}"
+
+matches = re.findall(pattern, text)
+print(matches)
+
+# Ejercicio:
+# Encuentra las palabras de más de 4 a 6 letras
+print()
+
+words = "ala casa árbol león circo murcielago"
+
+pattern = r"\b\w{4,6}\b"
+matches = re.findall(pattern, words)
+print(matches)
+
+# Ejercicio:
+# Encuentra las palabras de más de 6 letras
+print()
+
+words = "ala fantástico casa árbol león circo murcielago"
+pattern = r"\b\w{6,}\b"
+
+matches = re.findall(pattern, words)
+print(matches)
