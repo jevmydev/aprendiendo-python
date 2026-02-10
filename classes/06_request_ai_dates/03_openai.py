@@ -1,3 +1,9 @@
+###
+# 03 - OpenAI
+
+# Realizando peticiones a la API de OpenAi
+###
+
 import os
 import requests
 import json
